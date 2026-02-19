@@ -7,7 +7,7 @@ export const examples = [
     { name: 'Car Configurator', path: 'car-configurator.html' },
     { name: 'First Person Teleport', path: 'first-person-teleport.html' },
     { name: 'FPS Controller', path: 'fps-controller.html' },
-    { name: 'Gaussian Splatting', path: 'splat.html' },
+    { name: 'Game: Falling Blocks', path: 'vibe-falling-blocks.html' },
     { name: 'GLB Loader', path: 'glb.html' },
     { name: 'Physics', path: 'physics.html' },
     { name: 'Physics Cluster', path: 'physics-cluster.html' },
@@ -15,10 +15,12 @@ export const examples = [
     { name: 'Shoe Configurator', path: 'shoe-configurator.html' },
     { name: 'Solar System', path: 'solar-system.html' },
     { name: 'Sound', path: 'sound.html' },
+    { name: 'Splat: Annotations', path: 'splat-annotations.html' },
+    { name: 'Splat: Simple', path: 'splat-simple.html' },
+    { name: 'Splat: Flipbook', path: 'splat-flipbook.html' },
     { name: 'Text Elements', path: 'text.html' },
     { name: 'Text 3D', path: 'text3d.html' },
     { name: 'Tweening', path: 'tween.html' },
-    { name: 'Vibe Falling Blocks', path: 'vibe-falling-blocks.html' },
     { name: 'Video Recorder', path: 'video-recorder.html' },
     { name: 'Video Texture', path: 'video-texture.html' }
 ];

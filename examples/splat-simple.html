@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+        <title>PlayCanvas Web Components - 3D Gaussian Splat</title>
+        <script type="importmap">
+            {
+                "imports": {
+                    "playcanvas": "../node_modules/playcanvas/build/playcanvas.mjs"
+                }
+            }
+        </script>
+        <script type="module" src="../dist/pwc.mjs"></script>
+        <link rel="stylesheet" href="css/example.css">
+    </head>
+    <body>
+        <pc-app antialias="false" depth="false" high-resolution="false" stencil="false">
+            <!-- Assets -->
+            <pc-asset src="../node_modules/playcanvas/scripts/esm/camera-controls.mjs"></pc-asset>
+            <pc-asset src="../node_modules/playcanvas/scripts/esm/xr-controllers.mjs"></pc-asset>
+            <pc-asset src="../node_modules/playcanvas/scripts/esm/xr-menu.mjs"></pc-asset>
+            <pc-asset src="../node_modules/playcanvas/scripts/esm/xr-navigation.mjs"></pc-asset>
+            <pc-asset src="../node_modules/playcanvas/scripts/esm/xr-session.mjs"></pc-asset>
+            <pc-asset src="assets/fonts/arial.json" type="font" id="arial-font"></pc-asset>
+            <pc-asset src="assets/splats/statues/angel.sog" id="angel"></pc-asset>
+            <pc-asset src="assets/skies/sepulchral-chapel-rotunda-4k.webp" id="rotunda"></pc-asset>
+            <!-- Scene -->
+            <pc-scene>
+                <!-- Sky -->
+                <pc-sky asset="rotunda" type="dome" center="0 0.1 0" scale="20 20 20" lighting></pc-sky>
+                <!-- Camera (with XR support) -->
+                <pc-entity name="camera root">
+                    <pc-entity name="camera" position="0 2 3.5">
+                        <pc-camera></pc-camera>
+                        <pc-scripts>
+                            <pc-script name="cameraControls" attributes='{
+                                "enableFly": false,
+                                "enablePan": false,
+                                "focusPoint": "vec3:0,2,0",
+                                "pitchRange": "vec2:-90,0",
+                                "sceneSize": 3,
+                                "zoomRange": "vec2:0.5,3"
+                            }'></pc-script>
+                        </pc-scripts>
+                    </pc-entity>
+                    <pc-scripts>
+                        <pc-script name="xrControllers"></pc-script>
+                        <pc-script name="xrMenu" attributes='{
+                            "menuItems": [{"label": "Exit XR", "eventName": "xr:end"}],
+                            "fontAsset": "asset:arial-font"
+                        }'></pc-script>
+                        <pc-script name="xrNavigation"></pc-script>
+                        <pc-script name="xrSession"></pc-script>
+                    </pc-scripts>
+                </pc-entity>
+                <!-- Statue -->
+                <pc-entity name="statue" position="0 1 0" rotation="0 -45 180">
+                    <pc-splat asset="angel"></pc-splat>
+                </pc-entity>
+            </pc-scene>
+        </pc-app>
+        <script type="module" src="js/example.mjs"></script>
+    </body>
+</html>
